@@ -51,9 +51,9 @@
 <body>
 
    <div class="folium-map" id="{{ map_id }}" {{ size }}></div>
-   <script src="http://raw.github.com/koorukuroo/folium/master/folium/plugins/proj4-compressed.js"></script>
-   <script src="http://raw.github.com/koorukuroo/folium/master/folium/plugins/proj4leaflet.js"></script>
-   <script src="http://raw.github.com/koorukuroo/folium/master/folium/plugins/Leaflet.KoreanTmsProviders.js"></script>
+   <script src="http://rawgit.com/koorukuroo/folium/master/folium/plugins/proj4-compressed.js"></script>
+   <script src="http://rawgit.com/koorukuroo/folium/master/folium/plugins/proj4leaflet.js"></script>
+   <script src="http://rawgit.com/koorukuroo/folium/master/folium/plugins/Leaflet.KoreanTmsProviders.js"></script>
 
    <script>
 
@@ -61,10 +61,6 @@
 
       var baseLayer = {
         "Base Layer": L.Proj.TileLayer.TMS.provider('NaverMap.Street')
-      };
-
-      var baseLayer = {
-        "Base Layer": base_tile
       };
 
       /*
