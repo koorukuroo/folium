@@ -51,16 +51,17 @@
 <body>
 
    <div class="folium-map" id="{{ map_id }}" {{ size }}></div>
+   <script src="https://raw.githubusercontent.com/koorukuroo/folium/master/folium/plugins/proj4-compressed.js"></script>
+   <script src="https://raw.githubusercontent.com/koorukuroo/folium/master/folium/plugins/proj4leaflet.js"></script>
+   <script src="https://raw.githubusercontent.com/koorukuroo/folium/master/folium/plugins/Leaflet.KoreanTmsProviders.js"></script>
 
    <script>
 
       {{ vega_parse }}
 
-      var base_tile = L.tileLayer('{{ Tiles }}', {
-          maxZoom: {{ max_zoom }},
-          minZoom: {{ min_zoom }},
-          attribution: '{{ attr }}'
-      });
+      var baseLayer = {
+        "Base Layer": L.Proj.TileLayer.TMS.provider('NaverMap.Street')
+      };
 
       var baseLayer = {
         "Base Layer": base_tile
@@ -101,10 +102,12 @@
       Creates the map and adds the selected layers
       */
       var map = L.map('{{ map_id }}', {
+                                       crs: L.Proj.CRS.TMS.Naver,
                                        center:[{{ lat }}, {{ lon }}],
                                        zoom: {{ zoom_level }},
-                                       maxBounds: bounds,
-                                       layers: [base_tile]
+                                       layers: [L.Proj.TileLayer.TMS.provider('NaverMap.Street')],
+                                       continuousWorld: true,
+                                       worldCopyJump: false
                                      });
 
       L.control.layers(baseLayer, layer_list).addTo(map);
