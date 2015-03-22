@@ -10,3 +10,7 @@ Installation
 ```shell
 pip install --upgrade git+https://github.com/koorukuroo/folium
 ```
+
+Reference
+---------------
+[https://github.com/tontita/Leaflet.KoreanTmsProviders](https://github.com/tontita/Leaflet.KoreanTmsProviders)
